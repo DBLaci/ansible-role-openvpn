@@ -17,6 +17,7 @@ openvpn_server_netmask: 255.255.255.0
 openvpn_server_network: 10.9.0.0
 openvpn_set_dns: true
 openvpn_tun_mtu:
+openvpn_mynetworks: []
 
 # Security
 openvpn_auth_alg: SHA256
@@ -65,4 +66,3 @@ openvpn_client_configs: {}
 #     - push "route 192.168.1.0 255.255.255.0"
 #     - iroute 192.168.2.0 255.255.255.0
 #     - iroute 192.168.4.0 255.255.255.0
-

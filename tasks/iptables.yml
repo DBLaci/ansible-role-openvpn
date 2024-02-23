@@ -83,6 +83,18 @@
   when: openvpn_masquerade_not_snat
   notify: "save iptables"
 
+- name: Add exception rules for specific networks
+  iptables:
+    table: nat
+    chain: POSTROUTING
+    source: "{{ openvpn_server_network }}/24"
+    destination: "{{ item }}"
+    jump: RETURN
+    action: insert
+    comment: "Exclude {{ item }} from NAT readdressing"
+  loop: "{{ openvpn_mynetworks }}"
+  notify: "save iptables"
+
 - name: Save existing iptables rule before start iptables service
   shell: "{{ iptables_save_command }}"  # noqa command-instead-of-shell
   when: __iptables_installed.changed | bool  # noqa no-handler

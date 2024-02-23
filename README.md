@@ -91,6 +91,7 @@ These options change how OpenVPN itself works.
 | openvpn_server_network      | string       |                   | 10.9.0.0                   | Private network used by OpenVPN service                                                                                                              |
 | openvpn_set_dns             | boolean      | true, false       | true                       | Will push DNS to the client (Cloudflare and Google)                                                                                                  |
 | openvpn_tun_mtu             | int          |                   | `unset`                    | Set `tun-mtu` value. Empty for default.                                                                                                              |
+| openvpn_mynetworks          | list[string] |                   | []                         | List of networks routed by the vpn connection (['10.10.21.0/24', '10.10.22.0/24'])                                                                   |
 ### Security
 | Variable                           | Type    | Choices     | Default     | Comment                                                                                                                                                         |
 |------------------------------------|---------|-------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
